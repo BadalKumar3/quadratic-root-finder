@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Math Tools</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quadratic Equation Root Finder</h1>
+      <div class="input-box">
+        <label>
+          Coeff of x<sup>2</sup>:
+          <input type="number" id="degree2" />
+        </label>
+        <label for="degree1">
+          Coeff of x:
+          <input type="number" name="degree1" id="degree1" />
+        </label>
+        <label for="constant">
+          Constant:
+          <input type="number" name="constant" id="constant" />
+        </label>
+      </div>
+      <button class="submit"><a href="#answer">Submit</a></button>
+      <div id="answer" class="answer">
+        <!-- <p class="hidden">Roots are:</p> -->
+        <h1 class="root1"></h1>
+        <h1 class="root2"></h1>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
