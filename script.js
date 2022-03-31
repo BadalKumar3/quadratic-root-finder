@@ -4,42 +4,39 @@ console.log("Let's Begin!");
 const submit = document.querySelector('.submit');
 submit.addEventListener('click', function () {
   const a = Number(document.querySelector('#degree2').value);
-  //   if (a) {
-  //     console.log(typeof a);
-  //   }
+  
 
   const b = Number(document.querySelector('#degree1').value);
-  //   if (b) {
-  //     console.log(typeof b);
-  //   }
+  
   const c = Number(document.querySelector('#constant').value);
-  //   if (c) {
-  //     console.log(typeof c);
-  //   }
-  const discriminant = b * b - 4 * a * c;
+  
+  let discriminant = b * b - 4 * a * c;
   console.log(`Discriminant is ${discriminant}`);
-  console.log(typeof discriminant);
 
-  const sqrtDiscriminant = Math.sqrt(discriminant);
-  console.log(sqrtDiscriminant);
-  let root1 = (-b + sqrtDiscriminant) / (2 * a);
-  let root2 = (-b - sqrtDiscriminant) / (2 * a);
-  root1 = root1.toFixed(4);
-  root2 = root2.toFixed(4);
-  console.log(`Roots are: ${root1} and ${root2}`);
-  if (root1) {
-    document.querySelector('.root1').textContent = `Roots are ${root1} and `;
+  if (discriminant < 0) {
+    discriminant *= -1;
+    const sqrtDiscriminant = Math.sqrt(discriminant);
+    const rootExp1 = -b / (2 * a);
+    const root1Exp2 = sqrtDiscriminant / (2 * a);
+    const root2Exp2 = -sqrtDiscriminant / (2 * a);
+    const root1 = `(${rootExp1.toFixed(4)} + ${root1Exp2.toFixed(4)}i)`;
+    const root2 = `(${rootExp1.toFixed(4)} + ${root2Exp2.toFixed(4)}i)`;
+    document.querySelector(
+      '.root1'
+    ).textContent = `Roots are ${root1} and  ${root2}`;
+    
+
+    console.log(sqrtDiscriminant, rootExp1, root1Exp2, root2Exp2);
   } else {
-    document.querySelector('.root1').textContent = `Imaginary Roots`;
-  }
-  if (root2) {
-    document.querySelector('.root2').textContent = root2;
-  } else {
-    document.querySelector('.root2').textContent = `Imaginary Root`;
+    const sqrtDiscriminant = Math.sqrt(discriminant);
+    let root1 = (-b + sqrtDiscriminant) / (2 * a);
+    let root2 = (-b - sqrtDiscriminant) / (2 * a);
+    
+    console.log(`Roots are: ${root1.toFixed(4)} and ${root2.toFixed(4)}`);
+    if (root1) {
+      document.querySelector(
+        '.root1'
+      ).textContent = `(Roots are ${root1.toFixed(4)} and ${root2.toFixed(4)})`;
+    }
   }
 });
-//   const root1 = Number(-b + Math.sqrt(discriminant)) / (2 * a);
-//   console.log(root1);
-
-// const discriminant = 16;
-// console.log(Math.sqrt(discriminant))
